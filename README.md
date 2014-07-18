@@ -13,7 +13,7 @@ $ node
     new api.BrowserWindow('http://google.com'); 
   });
 ```
-This works out of the box on Windows, OSX and Linux with vaniall nodeJS installations.
+This works out of the box on `Windows`, `OSX` and `Linux` with vaniall nodeJS installations.
 
 ### Implementation details
 
