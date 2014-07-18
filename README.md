@@ -23,3 +23,24 @@ for the current platform and replaces the default app with a wrapper that expose
 
 Using the `node-shell` library, node apps can create rich native apps powered by `atom-shell`,
 without the need to build or rebuild anything (including native addons).
+
+When spawning a new shell from your module, the `node-shell` library spawns an `atom-shell`
+running the wrapper app and opens an RPC channel with it to let you interact with the API.
+
+```
+
++------------------------+           +-----------------------+
+|         node           |           |       atom-shell      |
++-------------------------           +-----------------------+
+
++--------+
+|  your  +--+------------+  spawms   +---------+
+| app.js |  | node-shell + --------> | wrapper +--+----------+
++--------+  |  library   +<--------->|   app   |  | atom API |
+            +------------+    RPC    +---------+  +----+-----+
+                                         +--------+----+
+                                         |        |       
+                                     +---+--+ +---+--+ 
+                                     | winA | | winB |   ...
+                                     +------+ +------+
+```
