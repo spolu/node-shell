@@ -4,16 +4,16 @@ node-shell
 `node-shell` lets you create cross-platform native GUI apps based on [atom-shell](https://github.com/atom/atom-shell),
 straight out of the box from NodeJS, with no dependency or build phase required.
 
-### Try it yourself
+### Try it yourself right now
 
 ```
-$ npm intsall node-shell
+$ npm install node-shell
 $ node
 > require('node-shell').spawn_shell(function(err, p, api) { 
     new api.BrowserWindow('http://google.com'); 
   });
 ```
-This works out of the box on `Windows`, `OSX` and `Linux` with a vanilla nodeJS installation.
+This works out of the box on `Windows`, `OSX` and `Linux` with vanilla nodeJS installations.
 
 ### Implementation details
 
