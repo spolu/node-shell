@@ -1,8 +1,8 @@
 node-shell
 ==========
 
-`node-shell` lets you create native GUI apps based on [atom-shell](https://github.com/atom/atom-shell),
-directly from NodeJS. It works out of the box, on Linux, OSX and Windows, without no required dependency or build phase.
+`node-shell` lets you create cross-platform native GUI apps based on [atom-shell](https://github.com/atom/atom-shell),
+directly from NodeJS. It no particular dependency or build phase.
 
 ### Try it yourself
 
@@ -13,6 +13,7 @@ $ node
     new api.BrowserWindow('http://google.com'); 
   });
 ```
+This works out of the box on Windows, OSX and Linux with vaniall nodeJS installations.
 
 ### Implementation details
 
@@ -23,5 +24,9 @@ for the current platform and replaces the default app by a wrapper that exposes 
 Using the `node-shell` library, node apps can create native apps powered by `atom-shell`,
 without the need to rebuild native addons against new binaries, straight out of nodeJS.
 
+### Packaging app
+
+`node-shell` also provide scripts to package apps based on it into native apps ready
+to be distributed to end-users.
 
 ### List of apps/modeuls using `node-shell`
