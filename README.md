@@ -28,5 +28,3 @@ without the need to rebuild native addons against new binaries, straight out of 
 
 `node-shell` also provide scripts to package apps based on it into native apps ready
 to be distributed to end-users.
-
-### List of apps/modeuls using `node-shell`
