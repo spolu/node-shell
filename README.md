@@ -26,5 +26,5 @@ without the need to rebuild native addons against new binaries, straight out of 
 
 ### Packaging apps
 
-`node-shell` also provide scripts to package apps based on it into native apps ready
+`node-shell` also provide scripts to package apps into native executables ready
 to be distributed to end-users.
