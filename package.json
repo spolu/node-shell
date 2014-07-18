@@ -1,6 +1,7 @@
 {
   "name": "node-shell",
   "description": "Atom Shell bindings for nodeJS",
+  "main": "./index.js",
   "author": {
     "name": "Stanislas Polu",
     "email": "polu.stanislas@gmail.com",
