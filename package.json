@@ -1,12 +1,12 @@
 {
-  "name": "node-frame",
-  "description": "Atom Shell packaged as a native NodeJS module",
+  "name": "node-shell",
+  "description": "Atom Shell bindings for nodeJS",
   "author": {
     "name": "Stanislas Polu",
     "email": "polu.stanislas@gmail.com",
     "url": "http://github.com/spolu"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "async": "0.7.x",
     "mkdirp": "0.3.x",
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/spolu/node-frame.git"
+    "url": "http://github.com/spolu/node-shell.git"
   },
   "bugs": {
-    "url": "https://github.com/spolu/node-frame/issues"
+    "url": "https://github.com/spolu/node-shell/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/spolu/node-frame/raw/master/LICENSE"
+      "url": "https://github.com/spolu/node-shell/raw/master/LICENSE"
     }
   ],
   "ATOM_SHELL_VERSION": "v0.13.3",
