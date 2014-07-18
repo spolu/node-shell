@@ -1,0 +1,35 @@
+{
+  "name": "node-frame",
+  "description": "Atom Shell packaged as a native NodeJS module",
+  "author": {
+    "name": "Stanislas Polu",
+    "email": "polu.stanislas@gmail.com",
+    "url": "http://github.com/spolu"
+  },
+  "version": "0.1.0",
+  "dependencies": {
+    "async": "0.7.x",
+    "mkdirp": "0.3.x",
+    "fs-extra": "0.8.x",
+    "optimist": "0.6.x",
+    "request": "2.36.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/spolu/node-frame.git"
+  },
+  "bugs": {
+    "url": "https://github.com/spolu/node-frame/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/spolu/node-frame/raw/master/LICENSE"
+    }
+  ],
+  "ATOM_SHELL_VERSION": "v0.13.3",
+  "ATOM_SHELL_BASE_URL": "https://github.com/atom/atom-shell/releases/download/",
+  "scripts": {
+    "postinstall": "node script/bootstrap.js"
+  }
+}
