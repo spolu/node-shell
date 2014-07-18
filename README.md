@@ -26,5 +26,11 @@ without the need to rebuild native addons against new binaries, straight out of 
 
 ### Packaging apps
 
-`node-shell` also provide scripts to package apps into native executables ready
+`node-shell` also plan to provide scripts to package apps into native executables ready
 to be distributed to end-users.
+
+```
+$ sudo npm install node-shell -g
+$ node-shell package .
+Packaged my-app.exe in my-app/
+```
