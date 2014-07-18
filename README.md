@@ -2,7 +2,7 @@ node-shell
 ==========
 
 `node-shell` lets you create cross-platform native GUI apps based on [atom-shell](https://github.com/atom/atom-shell),
-directly from NodeJS. It no particular dependency or build phase.
+straight out of the box from NodeJS, with no dependency or build phase required.
 
 ### Try it yourself
 
