@@ -24,7 +24,7 @@ for the current platform and replaces the default app by a wrapper that exposes 
 Using the `node-shell` library, node apps can create native apps powered by `atom-shell`,
 without the need to rebuild native addons against new binaries, straight out of nodeJS.
 
-### Packaging app
+### Packaging apps
 
 `node-shell` also provide scripts to package apps based on it into native apps ready
 to be distributed to end-users.
