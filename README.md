@@ -20,7 +20,8 @@ When `npm install` is invoked, `node-shell` downloads a package release of `atom
 for the current platform and replaces the default app by a wrapper that exposes the 
 `atom-shell` API through RPC on unix domain sockets.
 
-Using the `node-shell` library, node apps can create GUI windows powered by the 
-`atom-shell` API, that work cross-platform.
+Using the `node-shell` library, node apps can create native apps powered by `atom-shell`,
+without the need to rebuild native addons against new binaries, straight out of nodeJS.
+
 
 ### List of apps/modeuls using `node-shell`
