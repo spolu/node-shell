@@ -35,7 +35,8 @@ var ATOM_SHELL_PATH = path.join(VENDOR_PATH, 'atom-shell');
 var ATOM_SHELL_VERSION_PATH = path.join(ATOM_SHELL_PATH, '.version');
 
 var ATOM_RELEASE_FILENAME = 'atom-shell-' + ATOM_SHELL_VERSION + '-' +
-                            os.type() + '-' + os.arch() + '.zip';
+                            os.type().toLowerCase() + '-' + 
+                            os.arch().toLowerCase() + '.zip';
 var ATOM_RELEASE_URL = ATOM_SHELL_BASE_URL + 
                        ATOM_SHELL_VERSION + '/' + 
                        ATOM_RELEASE_FILENAME;
