@@ -15,6 +15,8 @@ $ node
 ```
 This works out of the box on `Windows`, `OSX` and `Linux` with vanilla nodeJS installations.
 
+![ScreenShot](http://i.imgur.com/4pRqXwQ.png)
+
 ### Implementation details
 
 When `npm install` is invoked, `node-shell` downloads a packaged release of `atom-shell`
