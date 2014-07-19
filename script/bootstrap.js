@@ -164,10 +164,21 @@ var inject_wrapper = function(cb_) {
       }
     ], cb_);
   }
-  /*
   else if(os.type().toLowerCase() === 'darwin') {
+    async.series([
+      function(cb_) {
+        fs.remove(path.join(ATOM_SHELL_PATH, 
+                            'Atom.app', 'Contents', 'Resources', 'default_app'),
+                            cb_);
+      },
+      function(cb_) {
+        fs.copy(WRAPPER_PATH, 
+                path.join(ATOM_SHELL_PATH, 
+                          'Atom.app', 'Contents', 'Resources', 'default_app'),
+                cb_);
+      }
+    ], cb_);
   }
-  */
   else {
     return cb_(common.err('Wrapper injection not supported on: ' +
                           os.type().toLowerCase(),
