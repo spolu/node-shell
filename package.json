@@ -1,18 +1,20 @@
 {
   "name": "node-shell",
   "description": "Atom Shell bindings for nodeJS",
+  "main": "./index.js",
   "author": {
     "name": "Stanislas Polu",
     "email": "polu.stanislas@gmail.com",
     "url": "http://github.com/spolu"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "dependencies": {
     "async": "0.7.x",
     "mkdirp": "0.3.x",
     "fs-extra": "0.8.x",
     "optimist": "0.6.x",
-    "request": "2.36.x"
+    "request": "2.36.x",
+    "dnode": "1.2.x"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,10 @@
+{
+  "name": "wrapper",
+  "productName": "Node Shell's Atom Shell wrapper app",
+  "version": "0.1.1",
+  "main": "index.js",
+  "dependencies": {
+    "async": "0.7.x",
+    "dnode": "1.2.x"
+  }
+}

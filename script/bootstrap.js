@@ -21,7 +21,7 @@ var util = require('util');
 var common = require('../lib/common.js');
 
 /******************************************************************************/
-/* CONFIGURATION                                                              */
+/* CONFIGURATION */
 /******************************************************************************/
 var MODULE_PATH = path.join(__dirname, '..');
 var VENDOR_PATH = path.join(MODULE_PATH, 'vendor');
@@ -41,8 +41,10 @@ var ATOM_RELEASE_URL = ATOM_SHELL_BASE_URL +
                        ATOM_SHELL_VERSION + '/' + 
                        ATOM_RELEASE_FILENAME;
 
+var WRAPPER_PATH = path.join(MODULE_PATH, 'wrapper');
+
 /******************************************************************************/
-/* BOOTSTRAPPING STEPS                                                        */
+/* BOOTSTRAPPING STEPS */
 /******************************************************************************/
 // ### install_atom_shell
 //
@@ -72,10 +74,10 @@ var install_atom_shell = function(force, cb_) {
         else {
           if(data.toString() === ATOM_SHELL_VERSION) {
             /* We're done here! */
-            console.log('atom-shell-' + ATOM_SHELL_VERSION + 
-                        ' already installed in ' + 
-                        path.join(ATOM_SHELL_PATH));
-            process.exit(0);
+            return cb_(common.err('atom-shell-' + ATOM_SHELL_VERSION + 
+                                  ' already installed in ' + 
+                                  path.join(ATOM_SHELL_PATH),
+                                  'bootstrap:already_installed'));
           }
           else {
             fs.remove(ATOM_SHELL_PATH, cb_);
@@ -144,23 +146,61 @@ var install_atom_shell = function(force, cb_) {
   ], cb_);
 };
 
+// ### inject_wrapper
+//
+// Injects the node-shell wrapper app as atom-shell default app
+var inject_wrapper = function(cb_) {
+  console.log('Injecting node-shell wrapper');
+  if(os.type().toLowerCase() === 'linux') {
+    async.series([
+      function(cb_) {
+        fs.remove(path.join(ATOM_SHELL_PATH, 
+                            'resources', 'default_app'), cb_);
+      },
+      function(cb_) {
+        fs.copy(WRAPPER_PATH, 
+                path.join(ATOM_SHELL_PATH, 'resources', 'default_app'), 
+                cb_);
+      }
+    ], cb_);
+  }
+  /*
+  else if(os.type().toLowerCase() === 'darwin') {
+  }
+  */
+  else {
+    return cb_(common.err('Wrapper injection not supported on: ' +
+                          os.type().toLowerCase(),
+                          'boostrap:injection_not_supported'));
+  }
+};
+
 
 /******************************************************************************/
-/* MAIN                                                                       */
+/* MAIN */
 /******************************************************************************/
-(function() {
-  var argv = require('optimist')
-    .usage('Usage: $0 [-f]')
-    .argv;
+var argv = require('optimist')
+.usage('Usage: $0 [-f]')
+.argv;
 
-  async.series([
-    function(cb_) {
-      install_atom_shell(argv.f || false, cb_);
-    }
-  ], function(err) {
-    if(err) {
-      common.fatal(err);
-    }
-    process.exit(0);
-  });
-})();
+async.series([
+  function(cb_) {
+    install_atom_shell(argv.f || false, function(err) {
+      if(err && err.name === 'bootstrap:already_installed') {
+        console.log(err.message);
+        return cb_();
+      }
+      return cb_(err);
+    });
+  },
+  function(cb_) {
+    inject_wrapper(cb_);
+  }
+], function(err) {
+  if(err) {
+    common.fatal(err);
+  }
+  console.log('Done!');
+  process.exit(0);
+});
+
