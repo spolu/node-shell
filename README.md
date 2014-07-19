@@ -19,7 +19,7 @@ This works out of the box on `Windows`, `OSX` and `Linux` with vanilla nodeJS in
 
 When `npm install` is invoked, `node-shell` downloads a packaged release of `atom-shell`
 for the current platform and replaces the default app with a wrapper that exposes the 
-`atom-shell` API through RPC on local unix domain sockets.
+`atom-shell` API through (json)RPC over UNIX sockets.
 
 Using the `node-shell` library, node apps can create rich native apps powered by `atom-shell`,
 without the need to build or rebuild anything (including native addons).
