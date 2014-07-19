@@ -1,14 +1,7 @@
-var shell = require('./index.js');
 var common = require('./lib/common.js');
 
-shell.spawn_shell(function(err, p, api) {
-  console.log('READY');
-  //p.kill();
-  var win = new api.BrowserWindow({
-    width: 1200,
-    height: 768
-  });
-  win.loadUrl('http://google.com');
+require('./index.js')(function(err, api) {
+  var win = new api.BrowserWindow({}).loadUrl('http://google.com');
 });
 
 // SAFETY NET (kills the process and the spawns)

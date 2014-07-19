@@ -10,4 +10,4 @@
  */
 "use strict"
 
-exports.spawn_shell = require('./lib/shell.js').shell({}).spawn_shell;
+module.exports = require('./lib/shell.js').shell({}).spawn_shell;

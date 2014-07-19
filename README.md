@@ -9,12 +9,8 @@ straight out of the box from NodeJS, with no dependency or build phase required.
 ```
 $ npm install node-shell
 $ node
-> require('node-shell').spawn_shell(function(err, p, api) { 
-    var win = new api.BrowserWindow({
-      width: 1200,
-      height: 768
-    });
-    win.loadUrl('http://google.com');
+> require('node-shell')(function(err, api) { 
+    var win = new api.BrowserWindow({}).loadUrl('http://google.com');
   });
 ```
 This works out of the box on `Windows`, `OSX` and `Linux` with vanilla nodeJS installations.

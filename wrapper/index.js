@@ -51,8 +51,6 @@ var server = net.createServer(function(c) {
       }
     },
     call: function(object_id, method, args, cb_) {
-      console.log('CALL: ' + object_id + ' ' + method);
-      console.log(JSON.stringify(registry));
       if(registry[object_id]) {
         registry[object_id].object[method].apply(registry[object_id].object, args);
         return cb_();
