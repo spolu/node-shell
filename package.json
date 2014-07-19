@@ -31,6 +31,19 @@
   ],
   "ATOM_SHELL_VERSION": "v0.13.3",
   "ATOM_SHELL_BASE_URL": "https://github.com/atom/atom-shell/releases/download/",
+  "ATOM_SHELL_RELEASE_PLATFORMS": {
+    "darwin": {
+      "x64": "darwin-x64"
+    },
+    "linux": {
+      "ia32": "linux-ia32",
+      "x64": "linux-x64"
+    },
+    "win32": {
+      "ia32": "win32-ia32",
+      "x64": "win32-ia32"
+    }
+  },
   "scripts": {
     "postinstall": "node script/bootstrap.js"
   }

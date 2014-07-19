@@ -34,9 +34,13 @@ var ATOM_SHELL_VERSION = package_json.ATOM_SHELL_VERSION;
 var ATOM_SHELL_PATH = path.join(VENDOR_PATH, 'atom-shell');
 var ATOM_SHELL_VERSION_PATH = path.join(ATOM_SHELL_PATH, '.version');
 
+var ATOM_SHELL_RELEASE_PLATFORM = package_json.ATOM_SHELL_RELEASE_PLATFORMS
+                                      [os.platform().toLowerCase()]
+                                      [os.arch().toLowerCase()];
+
 var ATOM_RELEASE_FILENAME = 'atom-shell-' + ATOM_SHELL_VERSION + '-' +
-                            os.type().toLowerCase() + '-' + 
-                            os.arch().toLowerCase() + '.zip';
+                            ATOM_SHELL_RELEASE_PLATFORM + '.zip';
+
 var ATOM_RELEASE_URL = ATOM_SHELL_BASE_URL + 
                        ATOM_SHELL_VERSION + '/' + 
                        ATOM_RELEASE_FILENAME;
@@ -151,7 +155,8 @@ var install_atom_shell = function(force, cb_) {
 // Injects the node-shell wrapper app as atom-shell default app
 var inject_wrapper = function(cb_) {
   console.log('Injecting node-shell wrapper');
-  if(os.type().toLowerCase() === 'linux') {
+  if(os.type().toLowerCase() === 'linux' ||
+      os.platform().toLowerCase() === 'win32') {
     async.series([
       function(cb_) {
         fs.remove(path.join(ATOM_SHELL_PATH, 
