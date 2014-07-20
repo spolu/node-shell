@@ -52,8 +52,14 @@ var server = net.createServer(function(c) {
     },
     call: function(object_id, method, args, cb_) {
       if(registry[object_id]) {
-        registry[object_id].object[method].apply(registry[object_id].object, args);
-        return cb_();
+        if (method !== 'on') {
+          var result = registry[object_id].object[method].apply(registry[object_id].object, args);
+          return cb_(null, result);
+        } else {
+          // Add validation for if the registry object is an event emitter.
+          args.push(cb_);
+          return registry[object_id].object[method].apply(registry[object_id].object, args);
+        }
       }
     }
   }, { weak: false });
